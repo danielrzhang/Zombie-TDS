@@ -1,5 +1,7 @@
 package weapons;
 
+import java.awt.Graphics;
+
 import bullets.Bullet;
 import bullets.SmallBullet;
 import entity.MovingEntity;
@@ -12,7 +14,7 @@ public class Glock19 extends Gun {
 	public Glock19(Handler handler) {
 		super(handler);
 		reload = new Animation(75, Assets.glock19Reload, 0);
-		shoot = new Animation(10, Assets.glock19Shoot, 250);
+		shoot = new Animation(15, Assets.glock19Shoot, 250);
 		speed = 3.0f;
 		name = "Glock 19";
 		numberOfCurrentRounds = GLOCK19_ROUNDS;
@@ -25,6 +27,11 @@ public class Glock19 extends Gun {
 	@Override
 	public void tick() {
 		numberOfMagazines = handler.getPlayer().getInventory().getInventoryItems().get("Glock 19 Magazine");
+	}
+	
+	@Override
+	public void render(Graphics g) {
+		
 	}
 
 	@Override

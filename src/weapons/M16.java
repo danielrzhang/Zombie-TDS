@@ -1,5 +1,6 @@
 package weapons;
 
+import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 
 import bullets.Bullet;
@@ -16,10 +17,9 @@ public class M16 extends Gun {
 	public M16(Handler handler) {
 		super(handler);
 		reload = new Animation(75, Assets.m16Reload, 0);
-		shoot = new Animation(10, Assets.m16Shoot, 100);
+		shoot = new Animation(15, Assets.m16Shoot, 100);
 		speed = 3.0f;
 		name = "M16";
-		numberOfMagazines = 1;
 		numberOfCurrentRounds = 30;
 		reloadSFX = Assets.m16ReloadSFX;
 		attackSFX = Assets.m16ShotSFX;
@@ -31,6 +31,12 @@ public class M16 extends Gun {
 	@Override
 	public void tick() {
 		numberOfMagazines = handler.getPlayer().getInventory().getInventoryItems().get("M16 Magazine");
+		switchAuto();
+	}
+	
+	@Override
+	public void render(Graphics g) {
+		
 	}
 	
 	@Override

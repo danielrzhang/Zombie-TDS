@@ -1,11 +1,11 @@
 package weapons;
 
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 
 import game.Assets;
 import game.Handler;
-import usable.Usable;
 
 public class WeaponsManager {
 
@@ -24,22 +24,36 @@ public class WeaponsManager {
 		glock19 = new Glock19(handler);
 		remington870 = new Remington870(handler);
 		m16 = new M16(handler);
+		
+		active = true;
 
 		currentGun = glock19;
 		currentMelee = kabar;
 		currentWeapon = kabar;
-		active = true;
+		
+		kabar.setKeyBind(KeyEvent.VK_1);
+		glock19.setKeyBind(KeyEvent.VK_2);
+		remington870.setKeyBind(KeyEvent.VK_3);
+		m16.setKeyBind(KeyEvent.VK_4);
 	}
 
 	public void tick() {
+		if (!active) {
+			return;
+		}
 		getWeaponsInput();
+		tickAllWeapons();
+
 		currentGun.getReload().tick();
 		currentGun.getShoot().tick();
 		currentMelee.getAttack().tick();
+	}
+	
+	public void tickAllWeapons() {
+		kabar.tick();
 		glock19.tick();
 		remington870.tick();
 		m16.tick();
-		m16.switchAuto();
 	}
 
 	public BufferedImage getCurrentAnimationFrame() {
@@ -67,16 +81,16 @@ public class WeaponsManager {
 			currentMelee.getAttack().setAnimated(false);
 			Assets.gunSwitchSFX.play();
 
-			if (handler.getKeyManager().isKey1()) {
+			if (handler.getKeyManager().keyJustPressed(kabar.getKeyBind())) {
 				currentWeapon = currentMelee = kabar;
 				currentWeapon.setName(kabar.getName());
-			} else if (handler.getKeyManager().isKey2()) {
+			} else if (handler.getKeyManager().keyJustPressed(glock19.getKeyBind())) {
 				currentWeapon = currentGun = glock19;
 				currentWeapon.setName(glock19.getName());
-			} else if (handler.getKeyManager().isKey3()) {
+			} else if (handler.getKeyManager().keyJustPressed(remington870.getKeyBind())) {
 				currentWeapon = currentGun = remington870;
 				currentWeapon.setName(remington870.getName());
-			} else if (handler.getKeyManager().isKey4()) {
+			} else if (handler.getKeyManager().keyJustPressed(m16.getKeyBind())) {
 				currentWeapon = currentGun = m16;
 				currentWeapon.setName(m16.getName());
 			}
@@ -133,14 +147,6 @@ public class WeaponsManager {
 		return currentMelee;
 	}
 
-	public boolean isActive() {
-		return active;
-	}
-
-	public void setActive(boolean active) {
-		this.active = active;
-	}
-
 	public Handler getHandler() {
 		return handler;
 	}
@@ -179,5 +185,13 @@ public class WeaponsManager {
 
 	public void setCurrentMelee(MeleeWeapon currentMelee) {
 		this.currentMelee = currentMelee;
+	}
+
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
 	}
 }

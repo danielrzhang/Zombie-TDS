@@ -2,9 +2,9 @@ package weapons;
 
 import game.Handler;
 import game.Sound;
-import usable.Usable;
+import item.Item;
 
-public abstract class Weapon extends Usable {
+public abstract class Weapon extends Item {
 
 	protected float speed;
 	protected String weaponType;

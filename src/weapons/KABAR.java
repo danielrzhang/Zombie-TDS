@@ -1,5 +1,7 @@
 package weapons;
 
+import java.awt.Graphics;
+
 import game.Animation;
 import game.Assets;
 import game.Handler;
@@ -8,11 +10,21 @@ public class KABAR extends MeleeWeapon {
 
 	public KABAR(Handler handler) {
 		super(handler);
-		attack = new Animation(40, Assets.kabarAttack, 100);
+		attack = new Animation(40, Assets.kabarAttack, 50);
 		speed = 3.0f;
 		name = "KA-BAR";
 		attackSFX = Assets.knifeSlashSFX;
 		lastAttackTime = System.currentTimeMillis();
+	}
+	
+	@Override
+	public void tick() {
+		
+	}
+	
+	@Override
+	public void render(Graphics g) {
+		
 	}
 	
 	@Override

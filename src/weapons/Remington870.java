@@ -1,5 +1,7 @@
 package weapons;
 
+import java.awt.Graphics;
+
 import bullets.Bullet;
 import bullets.SmallBullet;
 import entity.MovingEntity;
@@ -15,17 +17,22 @@ public class Remington870 extends Gun {
 		shoot = new Animation(75, Assets.remington870Shoot, 1000);
 		speed = 3.0f;
 		name = "Remington 870";
-		numberOfMagazines = 2;
 		numberOfCurrentRounds = REMINGTON870_ROUNDS;
 		reloadSFX = Assets.remington870ReloadSFX;
 		attackSFX = Assets.remington870ShotSFX;
 		currentGunLength = 100;
 		currentGunAngleAddition = 11;
+
 	}
 	
 	@Override
 	public void tick() {
 		numberOfMagazines = handler.getPlayer().getInventory().getInventoryItems().get("Remington 870 Shells");
+	}
+	
+	@Override
+	public void render(Graphics g) {
+		
 	}
 	
 	@Override
