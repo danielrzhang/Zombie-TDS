@@ -6,7 +6,7 @@ import entity.Player;
 import hud.HUD;
 import input.KeyManager;
 import input.MouseManager;
-import item.MasterItemManager;
+import item.MasterWorldItemManager;
 import states.StateManager;
 import weapons.WeaponsManager;
 import world.World;
@@ -52,8 +52,8 @@ public class Handler {
 		return world.getEntityManager();
 	}
 	
-	public MasterItemManager getMasterItemManager() {
-		return world.getMasterItemManager();
+	public MasterWorldItemManager getMasterWorldItemManager() {
+		return world.getMasterWorldItemManager();
 	}
 	
 	public Player getPlayer() {

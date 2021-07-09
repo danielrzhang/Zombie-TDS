@@ -48,11 +48,11 @@ public class Assets {
 		
 		// In-game
 		kabarAttack = new BufferedImage[11];
-		glock19Shoot = new BufferedImage[4];
+		glock19Shoot = new BufferedImage[6];
 		glock19Reload = new BufferedImage[15];
-		remington870Shoot = new BufferedImage[11];
+		remington870Shoot = new BufferedImage[10];
 		remington870Reload = new BufferedImage[20];
-		m16Shoot = new BufferedImage[4];
+		m16Shoot = new BufferedImage[6];
 		m16Reload = new BufferedImage[20];
 		zombie = new BufferedImage[9];
 		
