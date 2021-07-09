@@ -10,37 +10,36 @@ import game.Handler;
 public class HUD {
 
 	private Handler handler;
-	private HotbarBoxHUD[] hotbar;
 	private int magazineTextX, bulletTextWidth, counterY, equippedWidth;
 	private BufferedImage magazineToDisplay;
 	private Color notSelectedColor;
 	private long reloadMessageFlash;
 	private boolean displayReloadMessage, active;
+	private Hotbar hotbar;
 
 	public HUD(Handler handler) {
 		this.handler = handler;
-		hotbar = new HotbarBoxHUD[5];
-		
-//		for (int i = 300; i )
-
-		hotbar[0] = new HotbarBoxHUD(Assets.kabar, 360, 520, 75, "1");
-		hotbar[1] = new HotbarBoxHUD(Assets.glock19, 460, 520, 75, "2");
-		hotbar[2] = new HotbarBoxHUD(Assets.remington870, 560, 520, 75, "3");
-		hotbar[3] = new HotbarBoxHUD(Assets.m16, 660, 520, 75, "4");
-		hotbar[4] = new HotbarBoxHUD(Assets.medkit, 760, 520, 75, "5");
-		hotbar[0].setCurrentlySelected(true);
 		counterY = 580;	
 		notSelectedColor = new Color(0, 0, 0, 127);
 		reloadMessageFlash = System.currentTimeMillis();
 		displayReloadMessage = true;
 		active = true;
+		hotbar = new Hotbar(handler);
+	}
+	
+	public void tick() {
+		hotbar.tick();
 	}
 
 	public void render(Graphics g) {
 		if (!active) {
 			return;
 		}
-		
+		displayGunHUD(g);
+		hotbar.render(g);
+	}
+	
+	public void displayGunHUD(Graphics g) {
 		if (handler.getWeaponsManager().getCurrentWeapon().getWeaponType().equals("Gun")) {
 			// Magazine and Bullet Counter
 			g.setFont(Assets.regularZombieFont);
@@ -51,9 +50,6 @@ public class HUD {
 			g.setFont(Assets.largeZombieFont);
 			displayScreenMessage(g);
 		}
-
-		// Weapons Hotbar Display
-		displayHotbar(g);
 		displayEquippedWeapon(g);
 	}
 
@@ -144,34 +140,6 @@ public class HUD {
 		g.drawString("Out of ammo!", 480, 470);
 	}
 
-	public void displayHotbar(Graphics g) {
-		if (handler.getKeyManager().isKey1()) {
-			setSelected(0);
-		} else if (handler.getKeyManager().isKey2()) {
-			setSelected(1);
-		} else if (handler.getKeyManager().isKey3()) {
-			setSelected(2);
-		} else if (handler.getKeyManager().isKey4()) {
-			setSelected(3);
-		}
-		renderHotbar(g);
-	}
-
-	public void setSelected(int index) {
-		hotbar[index].setCurrentlySelected(true);
-		for (int i = 0; i < hotbar.length; i++) {
-			if (i != index) {
-				hotbar[i].setCurrentlySelected(false);
-			}
-		}
-	}
-
-	public void renderHotbar(Graphics g) {
-		for (int i = 0; i < hotbar.length; i++) {
-			hotbar[i].render(g);
-		}
-	}
-
 	public Handler getHandler() {
 		return handler;
 	}
@@ -182,5 +150,5 @@ public class HUD {
 
 	public void setActive(boolean active) {
 		this.active = active;
-	}	
+	}
 }
