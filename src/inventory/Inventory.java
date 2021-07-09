@@ -14,20 +14,21 @@ public class Inventory {
 	private HashMap<String, Integer> inventoryItems;
 	
 	public Inventory(Handler handler) {
-		this.handler = handler;
-		active = false;
 		inventoryItems = new HashMap<String, Integer>();
 		
 		inventoryItems.put("Glock 19 Magazine", 2);
 		inventoryItems.put("Remington 870 Shells", 2);
 		inventoryItems.put("M16 Magazine", 1);
+
+		this.handler = handler;
+		active = false;
 	}
 	
 	public void tick() {
 		if (handler.getKeyManager().isKeyE()) {
 			active = !active;
-			handler.getHUD().setActive(!active);
 			handler.getWeaponsManager().setActive(!active);
+			handler.getHUD().setActive(!active);
 		}
 		
 		if (!active) {
@@ -36,11 +37,11 @@ public class Inventory {
 		
 //		System.out.println("Inventory:");
 //		
-//		for (HashMap.Entry<String, Integer> inventoryItems : inventoryItems.entrySet()) {
-//		    String key = inventoryItems.getKey();
-//		    Integer value = inventoryItems.getValue();
-//		    System.out.println(key + ": " + value);
-//		}
+		for (HashMap.Entry<String, Integer> inventoryItems : inventoryItems.entrySet()) {
+		    String key = inventoryItems.getKey();
+		    Integer value = inventoryItems.getValue();
+		    System.out.println(key + ": " + value);
+		}
 	}
 	
 	public void render(Graphics g) {
