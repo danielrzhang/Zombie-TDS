@@ -1,42 +1,27 @@
 package item;
 
 import java.awt.Graphics;
-import java.awt.Rectangle;
+import java.awt.image.BufferedImage;
 
 import game.Handler;
-import usable.Usable;
 
-public abstract class Item extends Usable {
+public abstract class Item {
 	
-	public static final int COIN_WIDTH = 20, COIN_HEIGHT = 20;
-	public static final int DEFAULT_ITEM_WIDTH = 30, DEFAULT_ITEM_HEIGHT = 40;
-	
-	protected float x, y;
+	protected BufferedImage texture;
+	protected Handler handler;
 	protected String name;
-	protected boolean pickedUp;
-	protected Rectangle hitbox;
+	protected int count;
+	protected Integer keyBind;
 
-	public Item(Handler handler, float x, float y) {
-		super(handler);
-		this.x = x;
-		this.y = y;
+	public Item(Handler handler) {
+		this.handler = handler;
 		count = 1;
-		pickedUp = false;
-		hitbox = new Rectangle((int) x, (int) y, DEFAULT_ITEM_WIDTH, DEFAULT_ITEM_HEIGHT);
+		keyBind = null;
 	}
 	
 	public abstract void tick();
 
 	public abstract void render(Graphics g);
-	
-	public abstract Rectangle getHitbox();
-	
-	public void collectItem() {
-		if (handler.getPlayer().getHitbox().intersects(getHitbox())) {
-			pickedUp = true;
-			handler.getPlayer().getInventory().addItem(this);
-		}
-	}
 	
 	public Handler getHandler() {
 		return handler;
@@ -46,27 +31,35 @@ public abstract class Item extends Usable {
 		this.handler = handler;
 	}
 
-	public float getX() {
-		return x;
+	public BufferedImage getTexture() {
+		return texture;
 	}
 
-	public void setX(float x) {
-		this.x = x;
+	public void setTexture(BufferedImage texture) {
+		this.texture = texture;
 	}
 
-	public float getY() {
-		return y;
+	public String getName() {
+		return name;
 	}
 
-	public void setY(float y) {
-		this.y = y;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public boolean isPickedUp() {
-		return pickedUp;
+	public int getCount() {
+		return count;
 	}
 
-	public void setPickedUp(boolean pickedUp) {
-		this.pickedUp = pickedUp;
+	public void setCount(int count) {
+		this.count = count;
+	}
+
+	public Integer getKeyBind() {
+		return keyBind;
+	}
+
+	public void setKeyBind(Integer keyBind) {
+		this.keyBind = keyBind;
 	}
 }

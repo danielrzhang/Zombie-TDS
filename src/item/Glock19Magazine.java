@@ -6,7 +6,7 @@ import java.awt.Rectangle;
 import game.Assets;
 import game.Handler;
 
-public class Glock19Magazine extends Item {
+public class Glock19Magazine extends WorldItem {
 
 	public Glock19Magazine(Handler handler, float x, float y) {
 		super(handler, x, y);

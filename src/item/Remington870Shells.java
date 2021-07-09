@@ -6,7 +6,7 @@ import java.awt.Rectangle;
 import game.Assets;
 import game.Handler;
 
-public class Remington870Shells extends Item {
+public class Remington870Shells extends WorldItem {
 
 	public Remington870Shells(Handler handler, float x, float y) {
 		super(handler, x, y);

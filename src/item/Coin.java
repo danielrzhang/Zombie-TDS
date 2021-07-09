@@ -7,7 +7,7 @@ import game.Animation;
 import game.Assets;
 import game.Handler;
 
-public class Coin extends Item {
+public class Coin extends WorldItem {
 
 	private int value;
 	protected Animation animation;

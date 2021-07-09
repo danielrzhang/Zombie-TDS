@@ -6,7 +6,7 @@ import java.awt.Rectangle;
 import game.Assets;
 import game.Handler;
 
-public class Medkit extends Item {
+public class Medkit extends WorldItem {
 
 	public Medkit(Handler handler, float x, float y) {
 		super(handler, x, y);
