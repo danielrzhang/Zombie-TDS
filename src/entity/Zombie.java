@@ -201,7 +201,7 @@ public class Zombie extends MovingEntity {
 	}
 	
 	public void hurtByKnife() {
-		if (zombieHitbox.contains(knifePoint) && handler.getWeaponsManager().getCurrentWeapon().getWeaponName().equals("KA-BAR") 
+		if (zombieHitbox.contains(knifePoint) && handler.getWeaponsManager().getCurrentWeapon().getName().equals("KA-BAR") 
 				&& handler.getWeaponsManager().getCurrentMelee().getAttack().isAnimated() && 
 				handler.getWeaponsManager().getCurrentMelee().getAttack().getIndex() == handler.getWeaponsManager().getCurrentMelee().getAttack().getNumFrames() - 1) {
 			handler.getWeaponsManager().getCurrentMelee().getAttack().setAnimated(false); 
@@ -234,19 +234,19 @@ public class Zombie extends MovingEntity {
 
 			if (rand <= 1) {
 				Medkit medkit = new Medkit(handler, pivotX + handler.getGameCamera().getXOffset(), pivotY + handler.getGameCamera().getYOffset());
-				handler.getMasterItemManager().getMedkitManager().addItem(medkit);
+				handler.getMasterWorldItemManager().getMedkitManager().addItem(medkit);
 			} else if (rand <= 3) {
 				Glock19Magazine glock19Magazine = new Glock19Magazine(handler, pivotX + handler.getGameCamera().getXOffset(), pivotY + handler.getGameCamera().getYOffset());
-				handler.getMasterItemManager().getGlock19MagazineManager().addItem(glock19Magazine);
+				handler.getMasterWorldItemManager().getGlock19MagazineManager().addItem(glock19Magazine);
 			} else if (rand <= 5) {
 				Remington870Shells remington870Shells = new Remington870Shells(handler, pivotX + handler.getGameCamera().getXOffset(), pivotY + handler.getGameCamera().getYOffset());
-				handler.getMasterItemManager().getRemington870ShellManager().addItem(remington870Shells);
+				handler.getMasterWorldItemManager().getRemington870ShellManager().addItem(remington870Shells);
 			} else if (rand <= 7) {
 				M16Magazine m16Magazine = new M16Magazine(handler, pivotX + handler.getGameCamera().getXOffset(), pivotY + handler.getGameCamera().getYOffset());
-				handler.getMasterItemManager().getM16MagazineManager().addItem(m16Magazine);
+				handler.getMasterWorldItemManager().getM16MagazineManager().addItem(m16Magazine);
 			} else {
 				Coin coin = new Coin(handler, pivotX + handler.getGameCamera().getXOffset(), pivotY + handler.getGameCamera().getYOffset());
-				handler.getMasterItemManager().getCoinManager().addItem(coin);
+				handler.getMasterWorldItemManager().getCoinManager().addItem(coin);
 			}
 		}
 		capDrop = true;
