@@ -5,7 +5,7 @@ This is a zombie shooting survival game that I developed.
 ![](images/gameplay.png)
 
 ## Loot Drops
-![](images/loot.png)
+![](images/lootdrops.png)
 
 ## Inventory
 ![](images/inventory.png)
