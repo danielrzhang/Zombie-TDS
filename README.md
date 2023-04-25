@@ -4,7 +4,13 @@ This is a zombie shooting survival game that I developed.
 ## Gameplay
 ![](images/gameplay.png)
 
-## Different Weapons
+## Loot Drops
+![](images/loot.png)
+
+## Inventory
+![](images/inventory.png)
+
+## Weapons
 ### KA-BAR (combat knife)
 ![](images/kabar.png)
 
@@ -21,7 +27,7 @@ This is a zombie shooting survival game that I developed.
 #### Fully automatic
 ![](images/m16-full.png)
 
-### Landmine (explosive)
+### Landmine (placeable explosive)
 ![](images/landmine.png)
 
 ## Reload
