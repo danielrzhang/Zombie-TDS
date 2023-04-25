@@ -14,8 +14,11 @@ This is a zombie shooting survival game that I developed.
 ### Remington 870 (shotgun)
 ![](images/remington.png)
 
-### M16 (assault rifle): Semi-automatic and fully automatic
+### M16 (assault rifle)
+#### Semi-automatic
 ![](images/m16-semi.png)
+
+#### Fully automatic
 ![](images/m16-full.png)
 
 ### Landmine (explosive)
