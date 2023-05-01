@@ -1,5 +1,5 @@
 # Zombie Top-Down Shooter
-This is a zombie shooting survival game that I developed.
+This is a zombie shooting survival game that I developed as a side project for fun.
 
 ## Gameplay
 ![](images/gameplay.png)
