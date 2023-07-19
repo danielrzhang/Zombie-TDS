@@ -1,8 +1,7 @@
 # zombie-rampage
 Welcome to Zombie Rampage, a thrilling top-down shooter game built in Java. Engage in an adrenaline-pumping battle against hordes of relentless zombies in this post-apocalyptic world. 
 
-# Game Instructions
-In Zombie Rampage, you play as a survivor fighting against waves of zombies. The objective is to stay alive for as long as possible while eliminating as many zombies as you can. The game features a top-down perspective, where you can move freely in all directions and shoot in any direction to take down zombies.
+In this game, you play as a survivor fighting against waves of zombies. The objective is to stay alive for as long as possible while eliminating as many zombies as you can. The game features a top-down perspective, where you can move freely in all directions and shoot in any direction to take down zombies.
 
 The zombies will approach you relentlessly, and if they get too close, they will attack. You have a limited amount of health, so be careful! You can also find various power-ups throughout the game to help you in your survival.
 
