@@ -1,7 +1,39 @@
-# Zombie Rampage
-Welcome to Zombie Rampage, a thrilling top-down shooter game built in Java. Engage in an adrenaline-pumping battle against hordes of relentless zombies in this post-apocalyptic world. I developed Zombie Rampage as an introduction to video game development. 
+# zombie-rampage
+Welcome to Zombie Rampage, a thrilling top-down shooter game built in Java. Engage in an adrenaline-pumping battle against hordes of relentless zombies in this post-apocalyptic world. 
 
-## Gameplay
+# Game Instructions
+In Zombie Rampage, you play as a survivor fighting against waves of zombies. The objective is to stay alive for as long as possible while eliminating as many zombies as you can. The game features a top-down perspective, where you can move freely in all directions and shoot in any direction to take down zombies.
+
+The zombies will approach you relentlessly, and if they get too close, they will attack. You have a limited amount of health, so be careful! You can also find various power-ups throughout the game to help you in your survival.
+
+# Controls
+* **W, A, S, D:** Move the character in the corresponding direction.
+* **R:** Reload the current weapon.
+* **1, 2, 3, 4, 5:** Change weapon.
+* **E:** Open inventory.
+* **Mouse movement:** Aim the player's current weapon.
+* **Left mouse button:** Use the current weapon.
+* **Right mouse button (M16 only)**: Switch fire selector type.
+
+# Installation
+1. Ensure you have Java Development Kit (JDK) version 15 or higher installed.
+2. Clone the repository.
+
+    `git clone https://github.com/danielrzhang/zombie-rampage.git`
+3. Navigate to the project directory's source file folder.
+
+    `cd zombie-rampage/src`
+4. Compile the Java source files.
+
+    `javac $(find . -name '*.java')`
+
+5. Run the project.
+
+    `java main/Main`
+
+
+# Pictures
+## Game Appearance
 <img src="images/gameplay.png" alt="drawing" width="500px"/>
 
 ## Loot Drops
@@ -48,3 +80,6 @@ Set up traps and fortify your position with placeable landmines. Strategically p
 
 ## Death screen
 <img src="images/death.png" alt="drawing" width="500px"/>
+
+# License
+Zombie Rampage is licensed under the MIT License.
